@@ -35,17 +35,17 @@ $L=tr\left(dL_T\right)=tr\left(\left(\widehat{y_T}-y_T\right)^Tdz_T\right)=tr\le
 
 $\frac{\partial L}{\partial s_T}=V^T\left(\widehat{y_T}-y_T\right)\odot\left(1-h_T\odot h_T\right)$
 
-矩阵 $U$ 在每个时刻 $t$ 都会影响该时刻的损失 $L_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $U\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L_1,L_2,\ldots,L_t,...,L_T\rightarrow L$ ，可推：
+矩阵 $U$ 在每个时刻 $t$ 都会影响该时刻的隐状态净输入 $s_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $U\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L$ ，可推：
 
 $dL=tr\left(\sum_{t=1}^{T}{\left(\frac{\partial L}{\partial s_t}\right)^Tds_t}\right)=tr\left(\sum_{t=1}^{T}{\left(\frac{\partial L}{\partial s_t}\right)^TdUh_{t-1}}\right)=tr\left(\sum_{t=1}^{T}{\left(\frac{\partial L}{\partial s_t}{h_{t-1}}^T\right)^TdU}\right)=tr\left(\left(\sum_{t=1}^{T}{\frac{\partial L}{\partial s_t}{h_{t-1}}^T}\right)^TdU\right)$
 
 $\frac{\partial L}{\partial U}=\sum_{t=1}^{T}{\frac{\partial L}{\partial s_t}{h_{t-1}}^T}$
 
-矩阵 $W$ 在每个时刻 $t$ 都会影响该时刻的损失 $L_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $W\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L_1,L_2,\ldots,L_t,...,L_T\rightarrow L$ ，可推：
+矩阵 $W$ 在每个时刻 $t$ 都会影响该时刻的隐状态净输入 $s_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $W\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L$ ，可推：
 
 $\frac{\partial L}{\partial W}=\sum_{t=1}^{T}{\frac{\partial L}{\partial s_t}{x_t}^T}$
 
-向量 $b$ 在每个时刻 $t$ 都会影响该时刻的损失 $L_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $b\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L_1,L_2,\ldots,L_t,...,L_T\rightarrow L$ ，可推：
+向量 $b$ 在每个时刻 $t$ 都会影响该时刻的隐状态净输入 $s_t$ 进而影响总损失 $L$ ，对应前向链式传播路径： $b\rightarrow s_1,s_2,\ldots,s_t,\ldots,s_T\rightarrow L$ ，可推：
 
 $\frac{\partial L}{\partial b}=\sum_{t=1}^{T}\frac{\partial L}{\partial s_t}$
 
